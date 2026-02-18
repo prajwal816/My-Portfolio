@@ -18,18 +18,16 @@
 
   /* Scroll-to with offset */
   const scrollto = (el) => {
-    let header = select("#header");
-    let offset = header ? header.offsetHeight : 0;
     let target = select(el);
     if (!target) return;
-    let pos = target.offsetTop - offset;
+    let pos = target.offsetTop;
     window.scrollTo({ top: pos, behavior: "smooth" });
   };
 
   /* Active nav link on scroll */
   let navLinks = select(".nav-menu a", true);
   const navActiveState = () => {
-    let pos = window.scrollY + 200;
+    let pos = window.scrollY + 100;
     navLinks.forEach((link) => {
       if (!link.hash) return;
       let section = select(link.hash);
